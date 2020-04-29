@@ -1,3 +1,8 @@
+<div class="post">[<date>2020-04-29</date>](2020-04-29-test.html) A test entry
+
+To try the git `post-commit` hook and build the gh-pages.
+
+</div>
 <div class="post">[<date>2020-04-29</date>](2020-04-29-pipx.html) pipx is like brew for python applications.
 
 https://pypi.org/project/pipx/

@@ -22,7 +22,6 @@ def gen_tags(allmd):
                             tags[dt] = [meta]
 
     with open('tags.md', 'w') as f:
-        f.write('% Tags\n%\n%\n')
         for k, metas in tags.items():
             f.write('\n## {k}\n\n'.format(k=k))
             for meta in metas:

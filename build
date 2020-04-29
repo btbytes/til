@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+git merge master
+make
+git add .
+git commit -am "A new build"
+git push origin gh-pages
+

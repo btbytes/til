@@ -13,9 +13,9 @@ fi
 
 <a href="tags.html#git" class="tag">git</a> 
 </div>
-<div class="post">[<date>2020-04-29</date>](2020-04-29-pipx.html) pipx is like brew for python applications.
+<div class="post">[<date>2020-04-29</date>](2020-04-29-pipx.html) pipx is like brew for python applications
 
-https://pypi.org/project/pipx/
+<https://pypi.org/project/pipx/>
 
 also similar to how cargo works for rust.
 

@@ -16,5 +16,5 @@
 
 ## python
 
-2020-04-29 -- [pipx is like brew for python applications.](2020-04-29-pipx.html)
+2020-04-29 -- [pipx is like brew for python applications](2020-04-29-pipx.html)
 

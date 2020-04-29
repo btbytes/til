@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="dcterms.date" content="2020-04-29" />
-  <title>A test entry</title>
+  <title>git post-commit hooks to build these pages</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@
 <article>
 
 <header id="title-block-header">
-<h1 class="title">A test entry</h1>
+<h1 class="title">git post-commit hooks to build these pages</h1>
 <p class="date">2020-04-29</p>
 </header>
 <p>To try the git <code>post-commit</code> hook and build the gh-pages.</p>
@@ -32,6 +32,7 @@ branch=master
 if [ `git rev-parse --abbrev-ref HEAD` == &quot;$branch&quot; ]; then
   git checkout gh-pages &amp;&amp; ./build &amp;&amp; git checkout master
 fi</code></pre>
+<p><a href="tags.html#git">git</a></p>
 </article>
 </body>
 </html>

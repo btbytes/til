@@ -1,7 +1,7 @@
 % All 
 % 
 % 
-[2020-04-29](2020-04-29-test.html) -- A test entry
+[2020-04-29](2020-04-29-test.html) -- git post-commit hooks to build these pages
 
 [2020-04-29](2020-04-29-pipx.html) -- pipx is like brew for python applications.
 

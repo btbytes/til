@@ -24,7 +24,7 @@ def gen_tags(allmd):
     with open('tags.md', 'w') as f:
         f.write('# Tags\n')
         for k, metas in tags.items():
-            f.write('\n## {k} <a name="{k}" />\n\n'.format(k=k))
+            f.write('\n## {k}\n\n'.format(k=k))
             for meta in metas:
                 f.write('* {date} [{title}]({link})\n'.format(**meta))
 
@@ -73,8 +73,9 @@ def process_file(fpath):
                     '[{tag}](tags.html#{tag}) '.format(tag=tag)
                     for tag in doctags
                 ]))
+                print('\n')
             else:
-                print(line)
+                print(line.rstrip())
 
 
 if __name__ == '__main__':

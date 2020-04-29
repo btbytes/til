@@ -22,11 +22,10 @@ def gen_tags(allmd):
                             tags[dt] = [meta]
 
     with open('tags.md', 'w') as f:
-        f.write('# Tags\n')
-        for k, metas in tags.items():
+        for k in sorted(tags.keys()):
             f.write('\n## {k}\n\n'.format(k=k))
-            for meta in metas:
-                f.write('* {date} [{title}]({link})\n'.format(**meta))
+            for meta in tags[k]:
+                f.write('{date} -- [{title}]({link})\n\n'.format(**meta))
 
 
 def gen_index(allmd):
@@ -44,38 +43,46 @@ def gen_index(allmd):
                 first = lines[0]
                 f.write('<div class="post">')
                 f.write('[<date>%s</date>](%s) %s' % (name, html, first))
-                for line in lines[1:]:
+                for line in proc_file(post):
                     f.write(line)
                 f.write('</div>\n')
 
 
 def gen_archive(allmd):
+    years = list(reversed(sorted(list(set([md[:4] for md in allmd])))))
     with open('archive.md', 'w') as a:
-        a.write('% All \n')
-        a.write('% \n')
-        a.write('% \n')
         for post in reversed(allmd):
             name = post[:10]
             with open(post, 'r') as fn:
                 lines = fn.readlines()
                 title = lines[0]
                 html = post.replace('.md', '.html')
+                year = post[:4]
+                if year in years:
+                    a.write('## {year}\n'.format(year=year))
+                    years.remove(year)
                 a.write('[%s](%s) -- %s\n' % (name, html, title))
 
 
 def process_file(fpath):
+    print(''.join(proc_file(fpath)))
+
+
+def proc_file(fpath):
+    compiled = []
     with open(fpath) as f:
         lines = f.readlines()
-        for line in lines[2:]:
+        for line in lines[1:]:
             if line.startswith('◊'):
                 doctags = [tag.lstrip('◊').strip() for tag in line.split(' ')]
-                print(' '.join([
-                    '[{tag}](tags.html#{tag}) '.format(tag=tag)
-                    for tag in doctags
+                compiled.append(' '.join([
+                    '<a href="tags.html#{tag}" class="tag">{tag}</a> '.format(
+                        tag=tag) for tag in doctags
                 ]))
-                print('\n')
+                compiled.append('\n')
             else:
-                print(line.rstrip())
+                compiled.append(line)
+    return compiled
 
 
 if __name__ == '__main__':

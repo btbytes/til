@@ -11,21 +11,22 @@ if [ `git rev-parse --abbrev-ref HEAD` == "$branch" ]; then
 fi
 ```
 
-◊git</div>
+<a href="tags.html#git" class="tag">git</a> 
+</div>
 <div class="post">[<date>2020-04-29</date>](2020-04-29-pipx.html) pipx is like brew for python applications.
 
 https://pypi.org/project/pipx/
 
 also similar to how cargo works for rust.
 
-◊python
+<a href="tags.html#python" class="tag">python</a> 
 
 </div>
 <div class="post">[<date>2020-04-29</date>](2020-04-29-courier.html) Courier is a nice monospace font.
 
 See [this man page](https://sveinbjorn.org/files/manpages/platypus.man.html)
 
-◊fonts
+<a href="tags.html#fonts" class="tag">fonts</a> 
 </div>
 <div class="post">[<date>2020-04-29</date>](2020-04-29-conwayslaw.html) Conway's law
 
@@ -33,5 +34,5 @@ named after (not John H Conway of game of life fame) programmer [Mel Conway](htt
 
 > Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure.
 
-◊computing
+<a href="tags.html#computing" class="tag">computing</a> 
 </div>

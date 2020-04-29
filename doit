@@ -4,4 +4,4 @@ git add *.md
 
 git commit -am "Adding one more TIL"
 
-git push origin master
+git push origin

@@ -10,6 +10,8 @@ archive.md: $(NOTES) bari
 
 index.md: $(NOTES) bari
 	python3 bari index
+tags.md: $(NOTES) bari
+	python bari tags
 
 # if you want author add: --metadata author=Yourname
 %.html: %.md Makefile template.htm inc.after inc.before

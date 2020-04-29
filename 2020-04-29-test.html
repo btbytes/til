@@ -26,6 +26,19 @@
 <p class="date">2020-04-29</p>
 </header>
 <p>To try the git <code>post-commit</code> hook and build the gh-pages.</p>
+<pre><code>
+$ cat .git/hooks/post-commit
+
+#!/bin/bash
+
+branch=master
+
+if [ `git rev-parse --abbrev-ref HEAD` == &quot;$branch&quot; ]; then
+
+  git checkout gh-pages &amp;&amp; ./build &amp;&amp; git checkout master
+
+fi
+</code></pre>
 </article>
 </body>
 </html>

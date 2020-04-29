@@ -2,6 +2,14 @@
 
 To try the git `post-commit` hook and build the gh-pages.
 
+```
+$ cat .git/hooks/post-commit
+#!/bin/bash
+branch=master
+if [ `git rev-parse --abbrev-ref HEAD` == "$branch" ]; then
+  git checkout gh-pages && ./build && git checkout master
+fi
+```
 </div>
 <div class="post">[<date>2020-04-29</date>](2020-04-29-pipx.html) pipx is like brew for python applications.
 

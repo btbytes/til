@@ -11,9 +11,9 @@ div.post p:first-of-type date a{
 }
 
 nav {
-	text-align: right; 
+	text-align: right;
 }
 
-nav span:nth-of-type(2) {
+nav span {
 	margin-left: 2em;
 }

@@ -27,8 +27,4 @@ index.html: index.md Makefile template.htm inc.after inc.before $(NOTES)
 archive.html: archive.md Makefile template.htm inc.after inc.before $(NOTES)
 	$(PANDOC) --metadata title=Archive $< -o $@
 
-.PHONY:
-clean:
-	rm -f $(HTML)
-	rm -f $(SPSOURCES)
-	rm -f $(SPHTML)
+

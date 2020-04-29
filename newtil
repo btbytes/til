@@ -8,11 +8,12 @@ suf = ''
 if len(sys.argv) > 1:
     suf = sys.argv[1]
 cnt = 1
+actsuf = '%s' % (suf, )
 while True:
-    actsuf = '%s%s' % (suf, cnt)
     fname = '%s-%s.md' % (time.strftime('%Y-%m-%d'), actsuf)
     p = Path(fname)
     if p.exists():
+        actsuf = '%s%s' % (suf, cnt)
         cnt += 1
     else:
         print(fname)

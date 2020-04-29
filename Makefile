@@ -12,11 +12,11 @@ index.md: $(NOTES) bari
 	python3 bari index
 
 tags.md: $(NOTES) bari
-	python bari tags
+	python3 bari tags
 
 # if you want author add: --metadata author=Yourname
 %.html: %.md Makefile template.htm inc.after inc.before
-	tail -n+2 $< | $(PANDOC) -f markdown \
+	python3 bari process $< | $(PANDOC) -f markdown \
 	--metadata title="$(shell head -n 1 $<)" \
 	--metadata date="$(shell echo $< | head -c 10)" \
 	-o $@

@@ -24,7 +24,7 @@ def gen_tags(allmd):
     with open('tags.md', 'w') as f:
         f.write('# Tags\n')
         for k, metas in tags.items():
-            f.write('\n## {k}\n\n'.format(k=k))
+            f.write('\n## {k} <a name="{k}" />\n\n'.format(k=k))
             for meta in metas:
                 f.write('* {date} [{title}]({link})\n'.format(**meta))
 
@@ -63,6 +63,20 @@ def gen_archive(allmd):
                 a.write('[%s](%s) -- %s\n' % (name, html, title))
 
 
+def process_file(fpath):
+    with open(fpath) as f:
+        lines = f.readlines()
+        for line in lines[2:]:
+            if line.startswith('◊'):
+                doctags = [tag.lstrip('◊').strip() for tag in line.split(' ')]
+                print(' '.join([
+                    '[{tag}](tags.html#{tag}) '.format(tag=tag)
+                    for tag in doctags
+                ]))
+            else:
+                print(line)
+
+
 if __name__ == '__main__':
     import glob
     import sys
@@ -77,3 +91,9 @@ if __name__ == '__main__':
         gen_index(allmd)
     if sys.argv[1] == 'tags':
         gen_tags(allmd)
+    if sys.argv[1] == 'process':
+        if len(sys.argv) < 3:
+            print('usage: ./bari process fname.md')
+            sys.exit(0)
+        else:
+            process_file(sys.argv[2])

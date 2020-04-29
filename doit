@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-git add *.md
+make
+
+git add .
 
 git commit -am "Adding one more TIL"
 
-git push origin
+git push origin master

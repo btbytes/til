@@ -3,13 +3,14 @@ HTML=$(patsubst %.md, %.html, $(NOTES))
 SPSOURCES=$(wildcard *.md)
 SPHTML=$(patsubst %.md, %.html, $(SPSOURCES))
 PANDOC=pandoc --standalone -A inc.after -B inc.before --template=template.htm --css=style.css --quiet
-all: $(HTML) archive.html index.html
+all: $(HTML) archive.html index.html tags.html
 
 archive.md: $(NOTES) bari
 	python3 bari archive
 
 index.md: $(NOTES) bari
 	python3 bari index
+
 tags.md: $(NOTES) bari
 	python bari tags
 
